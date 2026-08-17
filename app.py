@@ -1,4 +1,5 @@
 import json
+import math
 from pathlib import Path
 
 import pandas as pd
@@ -17,6 +18,13 @@ def fmt_pct(value, decimals=0):
     """Format percentages with parentheses for negatives."""
     pct = abs(value) * 100
     formatted = f"{pct:.{decimals}f}%"
+    return f"({formatted})" if value < 0 else formatted
+
+
+def fmt_mm(value, decimals=0):
+    """Format $mm values with parentheses for negatives."""
+    amount = abs(value)
+    formatted = f"${amount:.{decimals}f}mm"
     return f"({formatted})" if value < 0 else formatted
 
 st.title("Profound Operating Model")
@@ -70,65 +78,128 @@ with left:
     st.plotly_chart(fig, use_container_width=True)
 
 with right:
-    st.subheader("Profitability & Free Cash Flow")
+    st.subheader("EBITDA & EBITDA Margin")
+
+    ebitda_vals = [rev * margin for rev, margin in zip(d["revenue"], d["ebitda_margin"])]
+    ebitda_pct = [x * 100 for x in d["ebitda_margin"]]
+
+    ebitda_floor = math.floor(min(ebitda_vals) / 5) * 5
+    ebitda_ceil = math.ceil(max(ebitda_vals) / 5) * 5
+    ebitda_ticks = list(range(int(ebitda_floor), int(ebitda_ceil) + 1, 5))
+    ebitda_ticktext = [f"(${abs(v):.0f}mm)" if v < 0 else f"${v:.0f}mm" for v in ebitda_ticks]
+
+    pct_floor = math.floor(min(ebitda_pct) / 10) * 10
+    pct_ceil = math.ceil(max(ebitda_pct) / 10) * 10
+    pct_ticks = list(range(int(pct_floor), int(pct_ceil) + 1, 10))
+    pct_ticktext = [f"({abs(v):.0f}%)" if v < 0 else f"{v:.0f}%" for v in pct_ticks]
+
     fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=quarters,
-        y=[x * 100 for x in d["ebitda_margin"]],
-        mode="lines+markers+text",
-        name="EBITDA Margin",
-        text=[fmt_pct(x) for x in d["ebitda_margin"]],
-        textposition="top center",
-        customdata=[fmt_pct(x, 1) for x in d["ebitda_margin"]],
-        hovertemplate="%{x}<br>EBITDA Margin: %{customdata}<extra></extra>",
-    ))
     fig.add_trace(go.Bar(
         x=quarters,
-        y=d["fcf"],
-        name="FCF",
-        yaxis="y2",
-        opacity=0.45,
-        text=[f"${v:.1f}mm" for v in d["fcf"]],
+        y=ebitda_vals,
+        name="EBITDA",
+        text=[fmt_mm(v) for v in ebitda_vals],
         textposition="outside",
-        hovertemplate="%{x}<br>FCF: $%{y:.1f}mm<extra></extra>",
+        customdata=[fmt_mm(v) for v in ebitda_vals],
+        hovertemplate="%{x}<br>EBITDA: %{customdata}<extra></extra>",
+    ))
+    fig.add_trace(go.Scatter(
+        x=quarters,
+        y=ebitda_pct,
+        mode="lines+markers+text",
+        name="EBITDA Margin",
+        yaxis="y2",
+        text=[fmt_pct(x) for x in d["ebitda_margin"]],
+        textposition="top center",
+        customdata=[fmt_pct(x) for x in d["ebitda_margin"]],
+        hovertemplate="%{x}<br>EBITDA Margin: %{customdata}<extra></extra>",
     ))
     fig.update_layout(
         height=390,
         margin=dict(l=10, r=10, t=25, b=10),
-        yaxis=dict(title="EBITDA Margin (%)", ticksuffix="%"),
-        yaxis2=dict(title="FCF ($mm)", overlaying="y", side="right", tickprefix="$", ticksuffix="mm"),
+        yaxis=dict(
+            title="EBITDA ($mm)",
+            tickmode="array",
+            tickvals=ebitda_ticks,
+            ticktext=ebitda_ticktext,
+            zeroline=True,
+        ),
+        yaxis2=dict(
+            title="EBITDA Margin (%)",
+            overlaying="y",
+            side="right",
+            tickmode="array",
+            tickvals=pct_ticks,
+            ticktext=pct_ticktext,
+            zeroline=True,
+        ),
         legend=dict(orientation="h", y=1.15),
     )
     st.plotly_chart(fig, use_container_width=True)
 
-st.subheader("Liquidity ($mm)")
-fig = go.Figure()
-fig.add_trace(go.Scatter(
-    x=quarters,
-    y=d["cash"],
-    mode="lines+markers+text",
-    name="Ending Cash",
-    text=[f"${v:.0f}mm" for v in d["cash"]],
-    textposition="top center",
-    hovertemplate="%{x}<br>Ending Cash: $%{y:.1f}mm<extra></extra>",
-))
-fig.add_trace(go.Scatter(
-    x=quarters,
-    y=[25] * len(quarters),
-    mode="lines",
-    name="$25mm Minimum Cash",
-    line=dict(dash="dash"),
-    hovertemplate="%{x}<br>Minimum Cash: $25.0mm<extra></extra>",
-))
-fig.update_layout(
-    height=370,
-    margin=dict(l=10, r=10, t=25, b=10),
-    yaxis_title="$mm",
-    legend=dict(orientation="h", y=1.15),
-)
-fig.update_yaxes(tickprefix="$", ticksuffix="mm")
-st.plotly_chart(fig, use_container_width=True)
-st.info(d["liquidity"].replace("$25M", "$25mm"))
+left, right = st.columns(2)
+
+with left:
+    st.subheader("Free Cash Flow ($mm)")
+    fcf_vals = d["fcf"]
+    fcf_floor = math.floor(min(fcf_vals) / 5) * 5
+    fcf_ceil = math.ceil(max(fcf_vals) / 5) * 5
+    fcf_ticks = list(range(int(fcf_floor), int(fcf_ceil) + 1, 5))
+    fcf_ticktext = [f"(${abs(v):.0f}mm)" if v < 0 else f"${v:.0f}mm" for v in fcf_ticks]
+
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=quarters,
+        y=fcf_vals,
+        name="FCF",
+        text=[fmt_mm(v) for v in fcf_vals],
+        textposition="outside",
+        customdata=[fmt_mm(v) for v in fcf_vals],
+        hovertemplate="%{x}<br>FCF: %{customdata}<extra></extra>",
+    ))
+    fig.update_layout(
+        height=370,
+        margin=dict(l=10, r=10, t=25, b=10),
+        yaxis=dict(
+            title="FCF ($mm)",
+            tickmode="array",
+            tickvals=fcf_ticks,
+            ticktext=fcf_ticktext,
+            zeroline=True,
+        ),
+        showlegend=False,
+    )
+    st.plotly_chart(fig, use_container_width=True)
+
+with right:
+    st.subheader("Liquidity ($mm)")
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=quarters,
+        y=d["cash"],
+        mode="lines+markers+text",
+        name="Ending Cash",
+        text=[f"${v:.0f}mm" for v in d["cash"]],
+        textposition="top center",
+        hovertemplate="%{x}<br>Ending Cash: $%{y:.1f}mm<extra></extra>",
+    ))
+    fig.add_trace(go.Scatter(
+        x=quarters,
+        y=[25] * len(quarters),
+        mode="lines",
+        name="$25mm Minimum Cash",
+        line=dict(dash="dash"),
+        hovertemplate="%{x}<br>Minimum Cash: $25mm<extra></extra>",
+    ))
+    fig.update_layout(
+        height=370,
+        margin=dict(l=10, r=10, t=25, b=10),
+        yaxis_title="$mm",
+        legend=dict(orientation="h", y=1.15),
+    )
+    fig.update_yaxes(tickprefix="$", ticksuffix="mm")
+    st.plotly_chart(fig, use_container_width=True)
+    st.info(d["liquidity"].replace("$25M", "$25mm"))
 
 left, right = st.columns(2)
 
