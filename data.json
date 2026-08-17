@@ -181,9 +181,9 @@
       ],
       "liquidity": "No financing through 2028; downside case likely requires capital or cost action thereafter.",
       "insights": [
-        "Growth remains healthy but decelerates to ~28% by 2028, with no net retention benefit.",
-        "The cost base adjusts more slowly than growth, leaving EBITDA margin at roughly (13%) in 2028.",
-        "Cash remains above the $25M floor through 2028, but continued downside performance would likely require a raise or lower investment."
+        "Slower bookings and weaker retention reduce ARR growth to ~28% by 2028, materially limiting operating leverage despite continued topline expansion",
+        "Because the cost base cannot adjust as quickly as revenue, EBITDA remains meaningfully negative at ~13% of revenue in 2028 and the business continues to burn cash",
+        "Profound stays above its $25mm minimum operating cash balance through 2028, but with only ~$18mm of excess liquidity; continued downside performance, driven by slower growth or sustained investment, would likely require a future fundraise or cost reset"
       ]
     },
     "Base": {
@@ -353,9 +353,9 @@
       ],
       "liquidity": "No financing required; self-funding trajectory by 2028.",
       "insights": [
-        "ARR grows from $55M to ~$178M by 2028 while growth decelerates from ~60% to ~38%.",
-        "Heavy investment keeps EBITDA negative through 2027, but operating leverage drives EBITDA margin to ~2% by 2028.",
-        "Cash troughs around ~$75M, leaving ~\\$50M of headroom to the $25M minimum and no modeled financing need."
+        "Profound can sustain strong growth while deliberately decelerating from ~60% to ~38% ARR growth as the revenue base scales, reaching ~$178mm of ARR by 2028",
+        "Continued investment in GTM and product keeps profitability negative through 2027, but improving gross margin and employee productivity drive EBITDA to roughly breakeven in 2028",
+        "The company remains well-capitalized throughout the forecast, with cash troughing at ~$75mm versus a $25mm minimum, implying no near-term fundraising requirement under the Base Case"
       ]
     },
     "Bull": {
@@ -525,9 +525,9 @@
       ],
       "liquidity": "No financing required; self-funding trajectory by 2028.",
       "insights": [
-        "Strong retention and bookings sustain ~50% ARR growth through 2028 despite a much larger revenue base.",
-        "Continued reinvestment still produces meaningful operating leverage, with EBITDA margin reaching ~11% by 2028.",
-        "Cash rebuilds to ~$100M by 2028, providing substantial flexibility to continue investing without external capital."
+        "Stronger enterprise retention and new bookings sustain ~50% ARR growth through 2028, taking ARR to ~$235mm despite a substantially larger starting base",
+        "Revenue outperformance more than offsets higher hiring, producing meaningful operating leverage and expanding EBITDA margin to ~11% by 2028",
+        "The business becomes strongly cash generative and ends 2028 with ~$100mm of cash, providing flexibility to accelerate investment without relying on external capital"
       ]
     }
   }
