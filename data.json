@@ -1,0 +1,534 @@
+{
+  "quarters": [
+    "Q1'26",
+    "Q2'26",
+    "Q3'26",
+    "Q4'26",
+    "Q1'27",
+    "Q2'27",
+    "Q3'27",
+    "Q4'27",
+    "Q1'28",
+    "Q2'28",
+    "Q3'28",
+    "Q4'28"
+  ],
+  "scenarios": {
+    "Bear": {
+      "arr": [
+        60.9,
+        66.5,
+        72.2,
+        78.0,
+        83.1,
+        88.9,
+        95.1,
+        104.0,
+        111.0,
+        118.0,
+        125.0,
+        133.0
+      ],
+      "arr_growth": [
+        null,
+        null,
+        null,
+        0.418,
+        0.365,
+        0.337,
+        0.313,
+        0.333,
+        0.337,
+        0.327,
+        0.314,
+        0.279
+      ],
+      "revenue": [
+        14.5,
+        15.6,
+        17.0,
+        18.6,
+        20.0,
+        21.6,
+        23.2,
+        25.2,
+        27.0,
+        28.6,
+        30.1,
+        31.7
+      ],
+      "ebitda_margin": [
+        -0.44,
+        -0.4,
+        -0.35,
+        -0.31,
+        -0.31,
+        -0.28,
+        -0.24,
+        -0.19,
+        -0.18,
+        -0.15,
+        -0.12,
+        -0.08
+      ],
+      "fcf": [
+        -6.9,
+        -6.5,
+        -6.2,
+        -5.9,
+        -6.7,
+        -6.2,
+        -5.9,
+        -5.5,
+        -5.1,
+        -4.6,
+        -4.1,
+        -3.6
+      ],
+      "cash": [
+        103.1,
+        96.6,
+        90.4,
+        84.5,
+        77.8,
+        71.6,
+        65.7,
+        60.2,
+        55.1,
+        50.5,
+        46.4,
+        42.8
+      ],
+      "headcount": [
+        265,
+        284,
+        303,
+        325,
+        338,
+        350,
+        363,
+        375,
+        388,
+        400,
+        413,
+        425
+      ],
+      "arr_per_employee": [
+        230,
+        234,
+        238,
+        240,
+        246,
+        254,
+        262,
+        277,
+        286,
+        295,
+        303,
+        313
+      ],
+      "annual": {
+        "2026": {
+          "arr": 78.0,
+          "growth": 0.418,
+          "revenue": 65.64,
+          "ebitda_margin": -0.374,
+          "fcf": -25.52,
+          "cash": 84.48,
+          "headcount": 325,
+          "arr_per_employee": 240,
+          "burn_multiple": 1.11
+        },
+        "2027": {
+          "arr": 104.0,
+          "growth": 0.333,
+          "revenue": 90.03,
+          "ebitda_margin": -0.254,
+          "fcf": -24.3,
+          "cash": 60.18,
+          "headcount": 375,
+          "arr_per_employee": 277,
+          "burn_multiple": 0.93
+        },
+        "2028": {
+          "arr": 133.0,
+          "growth": 0.279,
+          "revenue": 117.41,
+          "ebitda_margin": -0.13,
+          "fcf": -17.39,
+          "cash": 42.79,
+          "headcount": 425,
+          "arr_per_employee": 313,
+          "burn_multiple": 0.6
+        }
+      },
+      "grr": 0.88,
+      "nrr": 1.0,
+      "gm": [
+        0.7,
+        0.72,
+        0.74
+      ],
+      "new_arr": [
+        23,
+        26,
+        29
+      ],
+      "hc_adds": [
+        75,
+        50,
+        50
+      ],
+      "liquidity": "No financing through 2028; downside case likely requires capital or cost action thereafter.",
+      "insights": [
+        "Growth remains healthy but decelerates to ~28% by 2028, with no net retention benefit.",
+        "The cost base adjusts more slowly than growth, leaving EBITDA margin at roughly (13%) in 2028.",
+        "Cash remains above the $25M floor through 2028, but continued downside performance would likely require a raise or lower investment."
+      ]
+    },
+    "Base": {
+      "arr": [
+        61.668,
+        69.866,
+        78.224,
+        88.143,
+        96.456,
+        106.579,
+        116.9,
+        129.071,
+        139.178,
+        151.382,
+        163.823,
+        178.405
+      ],
+      "arr_growth": [
+        0.121,
+        0.27,
+        0.422,
+        0.603,
+        0.564,
+        0.525,
+        0.494,
+        0.464,
+        0.443,
+        0.42,
+        0.401,
+        0.382
+      ],
+      "revenue": [
+        14.584,
+        16.442,
+        18.511,
+        20.796,
+        23.075,
+        25.379,
+        27.935,
+        30.746,
+        33.531,
+        36.32,
+        39.401,
+        42.779
+      ],
+      "ebitda_margin": [
+        -0.362,
+        -0.309,
+        -0.263,
+        -0.221,
+        -0.167,
+        -0.131,
+        -0.098,
+        -0.068,
+        -0.02,
+        0.006,
+        0.031,
+        0.054
+      ],
+      "fcf": [
+        -5.552,
+        -5.207,
+        -5.009,
+        -4.769,
+        -4.081,
+        -3.624,
+        -3.078,
+        -2.46,
+        -1.133,
+        -0.363,
+        0.356,
+        1.153
+      ],
+      "cash": [
+        104.448,
+        99.241,
+        94.232,
+        89.463,
+        85.382,
+        81.758,
+        78.68,
+        76.22,
+        75.087,
+        74.723,
+        75.079,
+        76.232
+      ],
+      "headcount": [
+        265,
+        284,
+        303,
+        325,
+        340,
+        359,
+        378,
+        400,
+        415,
+        434,
+        453,
+        475
+      ],
+      "arr_per_employee": [
+        233,
+        246,
+        258,
+        271,
+        284,
+        297,
+        309,
+        323,
+        335,
+        349,
+        362,
+        376
+      ],
+      "annual": {
+        "2026": {
+          "arr": 88.143,
+          "growth": 0.603,
+          "revenue": 70.33,
+          "ebitda_margin": -0.282,
+          "fcf": -20.54,
+          "cash": 89.46,
+          "headcount": 325,
+          "arr_per_employee": 271,
+          "burn_multiple": 0.62
+        },
+        "2027": {
+          "arr": 129.071,
+          "growth": 0.464,
+          "revenue": 107.14,
+          "ebitda_margin": -0.112,
+          "fcf": -13.24,
+          "cash": 76.22,
+          "headcount": 400,
+          "arr_per_employee": 323,
+          "burn_multiple": 0.32
+        },
+        "2028": {
+          "arr": 178.405,
+          "growth": 0.382,
+          "revenue": 152.03,
+          "ebitda_margin": 0.02,
+          "fcf": 0.01,
+          "cash": 76.23,
+          "headcount": 475,
+          "arr_per_employee": 376,
+          "burn_multiple": 0.0
+        }
+      },
+      "grr": 0.92,
+      "nrr": 1.08,
+      "gm": [
+        0.73,
+        0.75,
+        0.77
+      ],
+      "new_arr": [
+        28,
+        33,
+        38
+      ],
+      "hc_adds": [
+        75,
+        75,
+        75
+      ],
+      "liquidity": "No financing required; self-funding trajectory by 2028.",
+      "insights": [
+        "ARR grows from $55M to ~$178M by 2028 while growth decelerates from ~60% to ~38%.",
+        "Heavy investment keeps EBITDA negative through 2027, but operating leverage drives EBITDA margin to ~2% by 2028.",
+        "Cash troughs around ~$75M, leaving ~\\$50M of headroom to the $25M minimum and no modeled financing need."
+      ]
+    },
+    "Bull": {
+      "arr": [
+        64.0,
+        74.0,
+        84.8,
+        97.87,
+        109.0,
+        123.0,
+        138.0,
+        156.612,
+        170.0,
+        188.0,
+        209.0,
+        234.656
+      ],
+      "arr_growth": [
+        null,
+        null,
+        null,
+        0.779,
+        0.7,
+        0.66,
+        0.63,
+        0.6,
+        0.56,
+        0.53,
+        0.51,
+        0.498
+      ],
+      "revenue": [
+        14.9,
+        17.2,
+        19.7,
+        22.9,
+        25.8,
+        29.0,
+        33.0,
+        37.2,
+        41.0,
+        45.5,
+        50.5,
+        55.9
+      ],
+      "ebitda_margin": [
+        -0.34,
+        -0.29,
+        -0.23,
+        -0.18,
+        -0.13,
+        -0.08,
+        -0.02,
+        0.06,
+        0.08,
+        0.1,
+        0.12,
+        0.15
+      ],
+      "fcf": [
+        -5.0,
+        -4.7,
+        -4.5,
+        -4.4,
+        -2.7,
+        -1.8,
+        -1.0,
+        -0.5,
+        2.3,
+        3.2,
+        4.2,
+        5.1
+      ],
+      "cash": [
+        105.0,
+        100.3,
+        95.8,
+        91.4,
+        88.7,
+        86.9,
+        85.9,
+        85.4,
+        87.7,
+        90.9,
+        95.1,
+        100.2
+      ],
+      "headcount": [
+        270,
+        295,
+        320,
+        350,
+        375,
+        400,
+        425,
+        450,
+        475,
+        500,
+        525,
+        550
+      ],
+      "arr_per_employee": [
+        237,
+        251,
+        265,
+        280,
+        291,
+        308,
+        325,
+        348,
+        358,
+        376,
+        398,
+        427
+      ],
+      "annual": {
+        "2026": {
+          "arr": 97.87,
+          "growth": 0.779,
+          "revenue": 74.75,
+          "ebitda_margin": -0.243,
+          "fcf": -18.59,
+          "cash": 91.41,
+          "headcount": 350,
+          "arr_per_employee": 280,
+          "burn_multiple": 0.43
+        },
+        "2027": {
+          "arr": 156.612,
+          "growth": 0.6,
+          "revenue": 125.05,
+          "ebitda_margin": -0.04,
+          "fcf": -6.05,
+          "cash": 85.36,
+          "headcount": 450,
+          "arr_per_employee": 348,
+          "burn_multiple": 0.1
+        },
+        "2028": {
+          "arr": 234.656,
+          "growth": 0.498,
+          "revenue": 192.87,
+          "ebitda_margin": 0.115,
+          "fcf": 14.8,
+          "cash": 100.16,
+          "headcount": 550,
+          "arr_per_employee": 427,
+          "burn_multiple": 0.0
+        }
+      },
+      "grr": 0.94,
+      "nrr": 1.15,
+      "gm": [
+        0.75,
+        0.78,
+        0.8
+      ],
+      "new_arr": [
+        33,
+        42,
+        52
+      ],
+      "hc_adds": [
+        100,
+        100,
+        100
+      ],
+      "liquidity": "No financing required; self-funding trajectory by 2028.",
+      "insights": [
+        "Strong retention and bookings sustain ~50% ARR growth through 2028 despite a much larger revenue base.",
+        "Continued reinvestment still produces meaningful operating leverage, with EBITDA margin reaching ~11% by 2028.",
+        "Cash rebuilds to ~$100M by 2028, providing substantial flexibility to continue investing without external capital."
+      ]
+    }
+  }
+}
